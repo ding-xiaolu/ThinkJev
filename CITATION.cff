@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use ThinkJev, please cite the technical report in preferred-citation."
+type: software
+title: "ThinkJev: One Thought, Every Budget for Calibrated Typed Decisions"
+license: MIT
+repository-code: "https://github.com/ding-xiaolu/ThinkJev"
+url: "https://github.com/ding-xiaolu/ThinkJev"
+authors:
+  - family-names: Ding
+    given-names: Xiaolu
+    affiliation: "Fujian Bosssoft Co., Ltd."
+  - family-names: Yang
+    given-names: Kai
+    affiliation: "Fujian Bosssoft Co., Ltd."
+  - family-names: Liu
+    given-names: Dongdong
+    affiliation: "Fujian Bosssoft Co., Ltd."
+    email: liudongdong@bosssoft.com.cn
+keywords:
+  - large language models
+  - calibration
+  - typed decisions
+  - adaptive thinking
+preferred-citation:
+  type: article
+  title: "ThinkJev: One Thought, Every Budget for Calibrated Typed Decisions"
+  authors:
+    - family-names: Ding
+      given-names: Xiaolu
+      affiliation: "Fujian Bosssoft Co., Ltd."
+    - family-names: Yang
+      given-names: Kai
+      affiliation: "Fujian Bosssoft Co., Ltd."
+    - family-names: Liu
+      given-names: Dongdong
+      affiliation: "Fujian Bosssoft Co., Ltd."
+      email: liudongdong@bosssoft.com.cn
+  journal: "arXiv preprint arXiv:2610.37732"
+  year: 2026
+  url: "https://arxiv.org/abs/2610.37732"
+  identifiers:
+    - type: doi
+      value: "10.48550/arXiv.2610.37732"

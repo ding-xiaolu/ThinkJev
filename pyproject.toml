@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thinkjev"
+version = "0.1.0"
+description = "Calibrated typed decisions from the same open model, which thinks only when it is unsure"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [
+  {name = "Xiaolu Ding"},
+  {name = "Kai Yang"},
+  {name = "Dongdong Liu", email = "liudongdong@bosssoft.com.cn"},
+]
+keywords = ["llm", "calibration", "typed decisions", "adaptive thinking", "system 1", "system 2", "jev"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+# S1 is SemIf's direct option readout, vendored in src/thinkjev/_semif.py. These pins are
+# SemIf's own at commit 1f2dea3, so S1 numerics match SemIf's committed predictions.
+dependencies = [
+  "torch==2.10.0",
+  "transformers==5.17.0",
+  "accelerate==1.12.0",
+  "safetensors==0.8.0",
+  "huggingface-hub==1.31.0",
+  "tokenizers==0.23.2",
+  "numpy==2.2.6",
+  "sentencepiece==0.2.1",
+  "protobuf==7.36.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/ding-xiaolu/ThinkJev"
+Source = "https://github.com/ding-xiaolu/ThinkJev"
+Issues = "https://github.com/ding-xiaolu/ThinkJev/issues"
+Paper = "https://arxiv.org/abs/2610.37732"
+
+[project.scripts]
+thinkjev-score = "thinkjev.cli:main"
+thinkjev-s2 = "thinkjev.cli:s2_main"
+thinkjev-serve = "thinkjev.serve:main"
+
+[project.optional-dependencies]
+test = ["pytest==8.4.2", "chess==1.11.2"]
+# Evaluation tooling only; none of these is needed to serve or score.
+# jev: TypeSafe's SDK, for the test that it can talk to a local thinkjev-serve.
+jev = ["typesafe-sdk==0.7.2"]
+# data: python-chess (GPL-3.0) builds the chess evaluation rows; it is not imported by the package.
+data = ["chess==1.11.2"]
+# figures: plotting for the report.
+figures = ["matplotlib==3.11.2"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+thinkjev = ["calibrations/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
